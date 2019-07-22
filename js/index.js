@@ -26,6 +26,15 @@ nav.addEventListener('mouseleave',(event)=>{
     nav.style.backgroundColor = "white";
 });
 
+const anchors = document.querySelectorAll('a');
+
+anchors.forEach(function(item,index,array){
+    item.addEventListener("click", (event)=>{
+        // console.log('clicked', index);
+        event.preventDefault();
+    });
+});
+
 const logo = document.querySelector('.logo-heading');
 
 logo.addEventListener('mouseover', (event)=>{
