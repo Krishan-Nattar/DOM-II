@@ -35,10 +35,16 @@ function boxArrange(r, b, gre, p, g) {
   }
 }
 
+function moveTopDown(){
+
+}
+
 function moveBoxes(color) {
   if (color == topBox) {
     //Do nothing!
-  } else if (color == secondBox) {
+  } 
+  
+  if (color == secondBox) {
     if (color == red) {
       TweenMax.to(color, 3, { transform: "translateY(0px)" });
       boxArrange(120, 0, -120, -240, -360);
@@ -58,24 +64,22 @@ function moveBoxes(color) {
 
     secondBox = switchToTop(color);
   } else if (color == thirdBox) {
-
-
     if (color == red) {
       TweenMax.to(color, 3, { transform: "translateY(0px)" });
-      boxArrange(240, 120, 0, 120, -240);
+      boxArrange(240, 120, 0, -120, -240);
     } else if (color == blue) {
       TweenMax.to(color, 3, { transform: "translateY(-120px)" });
-      boxArrange(240, 120, 0, 120, -240);
+      boxArrange(240, 120, 0, -120, -240);
     } else if (color == green) {
       TweenMax.to(color, 3, { transform: "translateY(-240px)" });
-      boxArrange(240, 120, 0, 120, -240);
+      boxArrange(240, 120, 0, -120, -240);
       console.log(color, " ", topBox);
     } else if (color == pink) {
       TweenMax.to(color, 3, { transform: "translateY(-360px)" });
-      boxArrange(240, 120, 0, 120, -240);
+      boxArrange(240, 120, 0, -120, -240);
     } else if (color == gray) {
       TweenMax.to(color, 3, { transform: "translateY(-480px)" });
-      boxArrange(240, 120, 0, 120, -240);
+      boxArrange(240, 120, 0, -120, -240);
     }
 
     thirdBox = switchToTop(color);
@@ -101,28 +105,23 @@ function moveBoxes(color) {
     console.log(topBox);
   } else if (color == fifthBox) {
     if (color == red) {
-        TweenMax.to(color, 3, { transform: "translateY(0px)" });
-        boxArrange(480, 360, 240, 120, 0);
-        
-      } else if (color == blue) {
-        TweenMax.to(color, 3, { transform: "translateY(-120px)" });
-        boxArrange(480, 360, 240, 120, 0);
-        
-      } else if (color == green) {
-        TweenMax.to(color, 3, { transform: "translateY(-240px)" });
-        boxArrange(480, 360, 240, 120, 0);
-        
-      } else if (color == pink) {
-        TweenMax.to(color, 3, { transform: "translateY(-360px)" });
-        boxArrange(480, 360, 240, 120, 0);
-        
-      } else if (color == gray) {
-        TweenMax.to(color, 3, { transform: "translateY(-480px)" });
-        boxArrange(480, 360, 240, 120, 0);
-        
-      }
-  
-      fifthBox = switchToTop(color);
+      TweenMax.to(color, 3, { transform: "translateY(0px)" });
+      boxArrange(480, 360, 240, 120, 0);
+    } else if (color == blue) {
+      TweenMax.to(color, 3, { transform: "translateY(-120px)" });
+      boxArrange(480, 360, 240, 120, 0);
+    } else if (color == green) {
+      TweenMax.to(color, 3, { transform: "translateY(-240px)" });
+      boxArrange(480, 360, 240, 120, 0);
+    } else if (color == pink) {
+      TweenMax.to(color, 3, { transform: "translateY(-360px)" });
+      boxArrange(480, 360, 240, 120, 0);
+    } else if (color == gray) {
+      TweenMax.to(color, 3, { transform: "translateY(-480px)" });
+      boxArrange(480, 360, 240, 120, 0);
+    }
+
+    fifthBox = switchToTop(color);
   }
 }
 
