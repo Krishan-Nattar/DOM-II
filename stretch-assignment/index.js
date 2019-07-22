@@ -12,13 +12,23 @@ let secondBox = blue;
 let thirdBox = green;
 let fourthBox = pink;
 let fifthBox = gray;
-// console.log(blocks);
+
+window.addEventListener("mouseup", event=>{
+  // console.log("mouseup")
+  touchDown(topBox);
+});
 
 blocks.forEach(function(item, index, array) {
-  // item.style.position = "relative";
   item.addEventListener("click", event => {
     moveBoxes(item);
   });
+
+  item.addEventListener("mousedown", event=> {
+    takeOff(item);
+  });
+
+
+
 });
 
 function boxArrange(r, b, gre, p, g) {
@@ -49,9 +59,51 @@ function moveTopDown(color) {
   }
 }
 
+function takeOff(color){
+  if(color==topBox){
+
+    // TweenMax.to(color, 3, { transform: "translate(1000px, -240px)" });
+  
+
+    if (color == red) {
+      TweenMax.to(color, 30, { transform: "translate(2000px, 0px)" });
+    } else if (color == blue) {
+      TweenMax.to(color, 30, { transform: "translate(2000px, -120px)" });
+    } else if (color == green) {
+      TweenMax.to(color, 30, { transform: "translate(2000px, -240px)" });
+    } else if (color == pink) {
+      TweenMax.to(color, 30, { transform: "translate(2000px, -360px)" });
+    } else if (color == gray) {
+      TweenMax.to(color, 30, { transform: "translate(2000px, -480px)" });
+    }
+
+  }
+}
+
+function touchDown(color){
+  if(color==topBox){
+    TweenMax.to(color, 3, { transform: "translateX(0px)" });
+    
+    if (color == red) {
+      TweenMax.to(color, 3, { transform: "translateY(0px)" });
+    } else if (color == blue) {
+      TweenMax.to(color, 3, { transform: "translateY(-120px)" });
+    } else if (color == green) {
+      TweenMax.to(color, 3, { transform: "translateY(-240px)" });
+    } else if (color == pink) {
+      TweenMax.to(color, 3, { transform: "translateY(-360px)" });
+    } else if (color == gray) {
+      TweenMax.to(color, 3, { transform: "translateY(-480px)" });
+    }
+
+
+        
+  }
+}
+
 function moveBoxes(color) {
   if (color == topBox) {
-    //Do nothing!
+    //Run Horizontal program
   }
 
   if (color == secondBox) {
