@@ -1,3 +1,5 @@
+
+
 // Your code goes here
 
 
@@ -98,6 +100,7 @@ focusP[1].addEventListener('click', (event)=>{
 let propa = document.querySelector('.text-content.focus');
 
 propa.addEventListener('click', (event)=>{
-    propa.style.border = "1px solid black";
+    TweenMax.to(focusP, 6, {color:"red", backgroundColor: "purple"});
 });
+
 
