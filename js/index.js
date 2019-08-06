@@ -16,6 +16,7 @@
 
 
 const nav = document.querySelector('nav');
+// console.log(nav);
 nav.addEventListener('mouseenter',(event)=>{
     nav.style.transition="1s";
     nav.style.backgroundColor = "pink";
