@@ -1,5 +1,4 @@
 const blocks = document.querySelectorAll(".block");
-// blocks.style.transition="3s";
 
 const red = document.querySelector(".block--red");
 const blue = document.querySelector(".block--blue");
@@ -13,22 +12,18 @@ let thirdBox = green;
 let fourthBox = pink;
 let fifthBox = gray;
 
-window.addEventListener("mouseup", event=>{
-  // console.log("mouseup")
+window.addEventListener("mouseup", ()=>{
   touchDown(topBox);
 });
 
-blocks.forEach(function(item, index, array) {
-  item.addEventListener("click", event => {
+blocks.forEach(function(item) {
+  item.addEventListener("click", () => {
     moveBoxes(item);
   });
 
-  item.addEventListener("mousedown", event=> {
+  item.addEventListener("mousedown", ()=> {
     takeOff(item);
   });
-
-
-
 });
 
 function boxArrange(r, b, gre, p, g) {
@@ -59,11 +54,11 @@ function moveTopDown(color) {
   }
 }
 
+
+//Move boxes to the right. Relative to their ORIGINAL positions. 
+//This means if they are on the top row they will always go straight to the right.
 function takeOff(color){
   if(color==topBox){
-
-    // TweenMax.to(color, 3, { transform: "translate(1000px, -240px)" });
-  
 
     if (color == red) {
       TweenMax.to(color, 30, { transform: "translate(2000px, 0px)" });
@@ -76,10 +71,11 @@ function takeOff(color){
     } else if (color == gray) {
       TweenMax.to(color, 30, { transform: "translate(2000px, -480px)" });
     }
-
   }
 }
 
+
+//When you UNCLICK the mouse after the box has been flying to the right, move it back to the left. 
 function touchDown(color){
   if(color==topBox){
     TweenMax.to(color, 3, { transform: "translateX(0px)" });
@@ -95,17 +91,12 @@ function touchDown(color){
     } else if (color == gray) {
       TweenMax.to(color, 3, { transform: "translateY(-480px)" });
     }
-
-
-        
   }
 }
 
+//Move the top box down to the box you just clicked. 
+//Move the box you clicked up to the top.
 function moveBoxes(color) {
-  if (color == topBox) {
-    //Run Horizontal program
-  }
-
   if (color == secondBox) {
     moveTopDown(color);
     boxArrange(120, 0, -120, -240, -360);
@@ -127,6 +118,7 @@ function moveBoxes(color) {
   }
 }
 
+//The last box clicked is now the top box
 function switchToTop(current) {
   if (topBox == red) {
     topBox = current;
